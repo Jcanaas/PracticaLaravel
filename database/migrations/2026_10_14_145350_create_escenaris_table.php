@@ -6,13 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    protected $fillable = [];
+
     public function up(): void
     {
         Schema::create('escenaris', function (Blueprint $table) {
             $table->id();
+            $table->string('nom')->unique();
+            $table->unsignedInteger('aforament_maxim');
+            $table->string('ubicacio');
+            $table->boolean('cobert')->default(false);
             $table->timestamps();
         });
     }

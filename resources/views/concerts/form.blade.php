@@ -59,3 +59,19 @@
         <p style="color:red">{{ $message }}</p>
     @enderror
     <br>
+
+    <label for="escenaris">
+        Escenaris:
+    </label><br>
+    <select name="escenaris" id="escenaris">
+        <option value="">-- Selecciona --</option>
+        @foreach([Escenari::get()] as $t)
+            <option value="{{ $t }}" {{ old('escenaris', $concert->escenari->nom ?? '') == $t ? 'selected' : '' }}>
+                {{ $t }}
+            </option>
+        @endforeach
+    </select>
+    @error('escenaris')
+    <p style="color:red">{{ $message }}</p>
+    @enderror
+    <br>

@@ -2,19 +2,24 @@
 
 namespace Database\Seeders;
 
+use App\Models\Escenari;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Concert;
 
 class ConcertSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
+    public function randomOrder(): int {
+
+         return (Escenari::inRandomOrder()->first()->id);
+    }
+
     public function run(): void
     {
 
         Concert::create([
+        'escenari_id' => Escenari::inRandomOrder()->first()->id,
         'artista_id' => 6,
         'nom' => "Concierto Eric Clapton BCN",
         'data_hora' => 20240415,
@@ -22,6 +27,7 @@ class ConcertSeeder extends Seeder
         'tipus' => 'ACUSTIC'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->id,
             'artista_id' => 7,
             'nom' => "Concierto Limp Bizkit BCN",
             'data_hora' => 20240416,
@@ -29,6 +35,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'CONCERT'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->id,
             'artista_id' => 1,
             'nom' => "Concierto Rosalia x Trakatra",
             'data_hora' => 20240417,
@@ -36,6 +43,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'SHOWCASE'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->id,
             'artista_id' => 5,
             'nom' => "Concierto sabrina Carpintera | Villa-marin",
             'data_hora' => 20240416,
@@ -43,6 +51,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'CONCERT'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->id,
             'artista_id' => 5,
             'nom' => "Concierto sabrina Carpintera | Lima Peru",
             'data_hora' => 20260415,
@@ -50,6 +59,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'CONCERT'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->id,
             'artista_id' => 6,
             'nom' => "Concierto Eric Clapton | Sabadell",
             'data_hora' => 20260415,
@@ -57,6 +67,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'ACUSTIC'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->id,
             'artista_id' => 6,
             'nom' => "Concierto Eric Clapton | Sabadell",
             'data_hora' => 20260416,
@@ -64,6 +75,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'CONCERT'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->id,
             'artista_id' => 3,
             'nom' => "Concierto YKZ | Sabadell",
             'data_hora' => 20260417,
@@ -73,6 +85,7 @@ class ConcertSeeder extends Seeder
 
 
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->id,
             'artista_id' => 6,
             'nom' => "Concierto Eric Clapton BCN Parte 2: Ahora es personal",
             'data_hora' => 20270415,
@@ -80,6 +93,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'ACUSTIC'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->id,
             'artista_id' => 7,
             'nom' => "Concierto Limp Bizkit BCN Parte 2: Ahora es personal",
             'data_hora' => 20270416,
@@ -87,6 +101,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'CONCERT'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->id,
             'artista_id' => 1,
             'nom' => "Concierto Rosalia x Trakatra Parte 2: Ahora es personal",
             'data_hora' => 20270417,
@@ -94,6 +109,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'SHOWCASE'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->id,
             'artista_id' => 5,
             'nom' => "Concierto sabrina Carpintera | Villa-marin Parte 2: Ahora es personal",
             'data_hora' => 20270416,
@@ -101,6 +117,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'CONCERT'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->id,
             'artista_id' => 5,
             'nom' => "Concierto sabrina Carpintera | Lima Peru Parte 2: Ahora es personal",
             'data_hora' => 20270415,
@@ -108,6 +125,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'CONCERT'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->idEscenari::inRandomOrder()->first()->id,
             'artista_id' => 6,
             'nom' => "Concierto Eric Clapton | Sabadell Parte 2: Ahora es personal",
             'data_hora' => 20270415,
@@ -115,6 +133,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'ACUSTIC'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->id,
             'artista_id' => 6,
             'nom' => "Concierto Eric Clapton | Sabadell Parte 2: Ahora es personal",
             'data_hora' => 20270416,
@@ -122,6 +141,7 @@ class ConcertSeeder extends Seeder
             'tipus' => 'CONCERT'
         ]);
         Concert::create([
+            'escenari_id' => Escenari::inRandomOrder()->first()->id,
             'artista_id' => 3,
             'nom' => "Concierto YKZ | Sabadell Parte 2: Ahora es personal",
             'data_hora' => 20270417,
@@ -130,7 +150,7 @@ class ConcertSeeder extends Seeder
         ]);
 
 
-
+        Escenari::inRandomOrder()->first()->id;
 
     }
 

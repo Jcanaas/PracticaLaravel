@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('artistes', ArtistaController::class)->middleware('auth')->parameter('artistes', 'artista');
 Route::resource('concerts', ConcertController::class)->middleware('auth');
+Route::resource('escenaris', ConcertController::class)->middleware('auth');
 
 
 require __DIR__.'/auth.php';

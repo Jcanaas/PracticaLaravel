@@ -40,6 +40,7 @@
                                 <span style="background-color: red; color: white; padding: 2px 8px; border-radius: 4px;">Error</span>
                             @endif
                         </td>
+                        <td> <a href="{{route('escenaris.show', $concert->escenari)}}">{{ $concert->escenari->nom }}</a></td>
                     </tr>
                 @endforeach
             </table>
