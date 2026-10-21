@@ -15,6 +15,7 @@ class Concert extends Model
     protected $table = 'concerts';
     protected $fillable = [
         'artista_id',
+        'escenari_id',
         'nom',
         'data_hora',
         'durada_minuts',

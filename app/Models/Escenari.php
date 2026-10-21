@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Escenari extends Model
 {
 
-    protected $table = 'escenari';
+    protected $table = 'escenaris';
 
     protected $fillable = [
         'nom',

@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::table('concerts', function (Blueprint $table) {
             $table->foreignId('escenari_id')->constrained('escenaris')->ondelete('cascade')
-                ->after('artista_id')
-                ->constrained('escenaris')
-                ->cascadeOnDelete();
+                ->after('artista_id');
         });
     }
 
