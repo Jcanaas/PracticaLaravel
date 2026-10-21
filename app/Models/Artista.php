@@ -12,6 +12,7 @@ class Artista extends Model
         'actiu' => 'boolean'
 
     ];
+
     protected $table = 'artistes';
     protected $fillable = [
         'nom',
@@ -36,6 +37,5 @@ pais
 bio
 imatge_url
 actiu
-timestamps
-*/
+/*timestamps*/
 

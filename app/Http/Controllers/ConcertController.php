@@ -11,7 +11,9 @@ class ConcertController extends Controller
     public function index()
     {
 
-        $concerts = Concert::orderBy('data_hora')->get();
+        $concerts = Concert::with(['artista', 'escenari'])
+            ->orderBy('data_hora')
+            ->get();
         return view('concerts.index', compact('concerts'));
     }
 
