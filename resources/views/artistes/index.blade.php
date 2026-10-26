@@ -14,6 +14,7 @@
                 <tr>
                     <th>Nom</th>
                     <th>País</th>
+                    <th>Gèneres</th>
                     <th>Actiu</th>
                     <th>Accions</th>
                 </tr>
@@ -21,6 +22,7 @@
                     <tr>
                         <td>{{ $artista->nom }}</td>
                         <td>{{ $artista->pais }}</td>
+                        <td>{{$artista->generes->pluck('nom')->join(', ') ?: 'Sense gènere'}}</td>
                         <td>
                             @if ($artista->actiu)
                                 <span style="background-color: green; color: white; padding: 2px 8px; border-radius: 4px;">Actiu</span>

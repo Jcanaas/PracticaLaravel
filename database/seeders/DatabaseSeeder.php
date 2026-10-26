@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
         // llamar a seeders
         $this->call([
+            GenereSeeder::class,
             ArtistaSeeder::class,
             EscenariSeeder::class,
             ConcertSeeder::class

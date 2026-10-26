@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Artista;
+use App\Models\Genere;
 
 class ArtistaSeeder extends Seeder
 {
@@ -80,3 +81,18 @@ imatge_url
 actiu
 timestamps
 */
+
+
+$rosalia = Artista::where('nom', 'Rosalia')->first();
+$pop = Genere::where('nom', 'Pop')->first();
+$electro = Genere::where('nom', 'Electrònica')->first();
+
+if ($rosalia && $pop && $electro) {
+    $rosalia->generes()->attach([$pop->id, $electro->id]);
+}
+
+$allGeneres = Genere::all();
+Artista::all()->each(function ($artista) use ($allGeneres) {
+    $randomGeneres = $allGeneres->random(rand(1, 3))->pluck('id');
+    $artista->generes()->attach($randomGeneres);
+});

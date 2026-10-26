@@ -41,3 +41,16 @@
     <input type="checkbox" id="actiu" name="actiu" value="1"
            {{ old('actiu', $artista->actiu ?? true) ? 'checked' : '' }}>
     <br>
+
+    <div style="margin-top: 15px">
+        <label><strong>Gèneres:</strong></label>
+        @foreach($generes as $genere)
+            <label style="margin-right: 10px">
+                <input type="checkbox"
+                       name="generes[]"
+                       value="{{ $genere->id }}"
+                       @checked(in_array($genere->id, old('generes', isset($artista) ? $artista->generes->pluck('id')->toArray() : [])))>
+                {{ $genere->nom }}
+            </label>
+        @endforeach
+    </div>
