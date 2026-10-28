@@ -7,18 +7,22 @@
                 <p><strong>Biografia:</strong> {{ $artista->bio }}</p>
                 <p><strong>Imatge URL:</strong> {{ $artista->imatge_url }}</p>
                 <p><strong>Actiu:</strong> {{ $artista->actiu ? 'Sí' : 'No' }}</p>
-                <br><br>
-                @if ($artista->concerts->count() > 0)
-                    <h3>Concerts programats</h3>@if ($artista->concerts->count() > 0)
 
-                        <ul>
-                            @foreach ($artista->concerts as $concert)
-                                <li>{{ $concert->nom }} — {{ $concert->data_hora->format('d/m/Y H:i') }}</li>
-                            @endforeach
-                        </ul>
-                    @else
-                        <p>Encara no té concerts programats.</p>
-                    @endif
+                <br><br>
+
+                <p style="margin-top: 15px"><strong>Gèneres:</strong></p>
+                <ul>
+                    @forelse($artista->generes as $genere)
+                        <li>{{ $genere->nom }}</li>
+                    @empty
+                        <li>Sense gèneres assignats</li>
+                    @endforelse
+                </ul>
+
+                <br><br>
+
+                @if ($artista->concerts->count() > 0)
+                    <h3>Concerts programats</h3>
                     <ul>
                         @foreach ($artista->concerts as $concert)
                             <li>{{ $concert->nom }} — {{ $concert->data_hora->format('d/m/Y H:i') }}</li>

@@ -23,11 +23,10 @@ class Concert extends Model
     ];
 
     public function artista(): BelongsTo {
-    return $this->belongsTo(Artista::class);
+        return $this->belongsTo(Artista::class);
     }
 
-    public function escenari(): BelongsTo
-    {
+    public function escenari(): BelongsTo {
         return $this->belongsTo(Escenari::class);
     }
 }

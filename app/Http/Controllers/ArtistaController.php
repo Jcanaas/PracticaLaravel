@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Artista;
+use App\Models\Genere;
+
 class ArtistaController extends Controller
 {
     /**
@@ -11,7 +13,7 @@ class ArtistaController extends Controller
      */
     public function index()
     {
-        $artistes = Artista::orderBy('nom')->get();
+        $artistes = Artista::with('generes')->orderBy('nom')->get();
         return view('artistes.index', compact('artistes'));
     }
 
@@ -20,7 +22,9 @@ class ArtistaController extends Controller
      */
     public function create()
     {
-        return view('artistes.create');
+        $generes = Genere::orderBy('nom')->get();
+
+        return view('artistes.create', compact('generes'));
     }
 
     /**
@@ -35,7 +39,10 @@ class ArtistaController extends Controller
             'actiu' => 'boolean',
         ]);
 
-        Artista::create($validated);
+        $artista = Artista::create($validated);
+
+        $artista->generes()->sync($request->input('gneres', []));
+
         return redirect()->route('artistes.index');
     }
 
@@ -53,6 +60,8 @@ class ArtistaController extends Controller
      */
     public function edit(Artista $artista)
     {
+        $generes = Genere::orderBy('nom')->get();
+
         return view('artistes.edit', compact('artista'));
     }
 
@@ -70,6 +79,8 @@ class ArtistaController extends Controller
         ]);
 
         $artista->update($validated);
+
+        $artista->generes()->sync($request->input('gneres', []));
 
         return redirect()->route('artistes.index')
                          ->with('success', 'Artista actualitzat correctament!');
