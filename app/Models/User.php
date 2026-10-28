@@ -29,4 +29,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function entradas(): hasMany
+    {
+        return $this->hasMany(Entrada::class);
+    }
 }

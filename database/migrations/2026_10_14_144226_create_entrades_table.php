@@ -6,18 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    protected $fillable = [];
-
-    protected $casts = [
-
-    ];
 
     public function up(): void
     {
-        Schema::create('entradas', function (Blueprint $table) {
+        Schema::create('entrades', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('artistes')->ondelete('cascade');
-            $table->foreignId('concert_id');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('concert_id')->constrained()->cascadeOnDelete();
+            $table->decimal('preu_pagat');
+            $table->string('codi_entrada')->unique();
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('entradas');
+        Schema::dropIfExists('entrades');
     }
 };

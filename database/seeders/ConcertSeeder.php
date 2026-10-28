@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Escenari;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Concert;
 
@@ -11,7 +10,6 @@ class ConcertSeeder extends Seeder
 {
 
     public function randomOrder(): int {
-
          return (Escenari::inRandomOrder()->first()->id);
     }
 
@@ -150,7 +148,7 @@ class ConcertSeeder extends Seeder
         ]);
 
 
-        Escenari::inRandomOrder()->first()->id;
+
 
     }
 
