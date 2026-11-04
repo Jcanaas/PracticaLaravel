@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArtistaController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\EntradaController;
+use App\Http\Controllers\EstadistiquesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/concerts/{concert}/comprar', [EntradaController::class, 'store'])->name('entrades.store');
     Route::get('/concerts/{concert}/assistents', [EntradaController::class, 'assistents'])->name('entrades.assistents');
 });
+
+Route::get('/estadistiques', [EstadistiquesController::class, 'index'])->name('estadistiques.index');
 
 
 require __DIR__.'/auth.php';

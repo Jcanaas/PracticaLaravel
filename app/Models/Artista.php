@@ -24,6 +24,7 @@ class Artista extends Model
         'imatge_url',
         'actiu',
     ];
+
     public function concerts(): HasMany {
         return $this->hasMany(Concert::class);
     }
