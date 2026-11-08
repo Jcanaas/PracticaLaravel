@@ -7,8 +7,6 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
-
-            <!-- 1. Top 5 Concerts -->
             <div class="bg-white p-6 rounded-lg shadow">
                 <h3 class="text-lg font-bold mb-4">1. Top 5 concerts amb més entrades venudes</h3>
                 <ol class="list-decimal pl-5">
@@ -23,7 +21,6 @@
                 </ol>
             </div>
 
-            <!-- 2. Top 5 Artistes -->
             <div class="bg-white p-6 rounded-lg shadow">
                 <h3 class="text-lg font-bold mb-4">2. Top 5 artistes amb més concerts programats</h3>
                 <ol class="list-decimal pl-5">
@@ -37,7 +34,6 @@
                 </ol>
             </div>
 
-            <!-- 3. Recaptació per Escenari -->
             <div class="bg-white p-6 rounded-lg shadow">
                 <h3 class="text-lg font-bold mb-4">3. Recaptació total per escenari</h3>
                 <ul class="list-disc pl-5">
@@ -52,7 +48,6 @@
                 </ul>
             </div>
 
-            <!-- 4. Gèneres més populars -->
             <div class="bg-white p-6 rounded-lg shadow">
                 <h3 class="text-lg font-bold mb-4">4. Gèneres més populars</h3>
                 <ol class="list-decimal pl-5">
@@ -66,21 +61,19 @@
                 </ol>
             </div>
 
-            <!-- 5. Ocupació mitjana per Escenari -->
             <div class="bg-white p-6 rounded-lg shadow">
                 <h3 class="text-lg font-bold mb-4">5. Ocupació mitjana per escenari</h3>
                 <ul class="list-disc pl-5">
                     @forelse($ocupacioEscenaris as $escenari)
                         <li>
                             <strong>{{ $escenari->nom }}:</strong> {{ $escenari->percentatge_ocupacio }}%
-                            ({{ $escenari->entrades_count }} entrades de {{ $escenari->aforament * $escenari->concerts_count }} places totals)
+                            ({{ $escenari->entrades_count }} entrades de {{ $escenari->aforament_maxim * $escenari->concerts_count }} places totals)
                         </li>
                     @empty
                         <li>Sense dades disponibles</li>
                     @endforelse
                 </ul>
             </div>
-
         </div>
     </div>
 </x-app-layout>

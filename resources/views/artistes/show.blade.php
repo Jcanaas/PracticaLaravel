@@ -21,17 +21,14 @@
 
                 <br><br>
 
-                @if ($artista->concerts->count() > 0)
-                    <h3>Concerts programats</h3>
-                    <ul>
-                        @foreach ($artista->concerts as $concert)
-                            <li>{{ $concert->nom }} — {{ $concert->data_hora->format('d/m/Y H:i') }}</li>
-                        @endforeach
-                    </ul>
-                @else
-                    <p>Encara no té concerts programats.</p>
-                @endif
-
+                <h3>Concerts programats</h3>
+                <ul>
+                    @forelse ($artista->concerts as $concert)
+                        <li>{{ $concert->nom }} — {{ $concert->data_hora->format('d/m/Y H:i') }}</li>
+                    @empty
+                        <li>Encara no té concerts programats.</li>
+                    @endforelse
+                </ul>
 
                 <br>
                 <a href="{{ route('artistes.index') }}">Tornar a la llista</a>

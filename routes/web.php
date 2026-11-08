@@ -23,7 +23,6 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('artistes', ArtistaController::class)->middleware('auth')->parameter('artistes', 'artista');
 Route::resource('concerts', ConcertController::class)->middleware('auth');
-Route::resource('escenaris', ConcertController::class)->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/entrades', [EntradaController::class, 'mevesentrades'])->name('entrades.meves');

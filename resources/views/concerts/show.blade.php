@@ -13,6 +13,16 @@
                 <br>
                 <a href="{{ route('concerts.index') }}">Tornar a la llista</a>
             </div>
+            <div>
+                <p>{{ $concert->entrades->count() }} entrades venudes</p>
+                @if ($concert->entrades->count() >= $concert->escenari->aforament_maxim)
+                    <button disabled>Comprar entrada</button>
+                @else
+                    <a href="{{ route('entrades.create', $concert) }}"><button>Comprar entrada</button></a>
+                @endif
+                <br>
+                <a href="{{ route('entrades.assistents', $concert) }}">Veure assistents</a>
+            </div>
         </div>
     </div>
 

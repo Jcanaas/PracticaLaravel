@@ -32,6 +32,16 @@ class UserSeeder extends Seeder
             'email' => 'user@gmail.com',
             'password' => 'password',
         ]);
+        User::create([
+            'name' => 'user2',
+            'email' => 'user2@gmail.com',
+            'password' => 'password',
+        ]);
+        User::create([
+            'name' => 'user3',
+            'email' => 'user3@gmail.com',
+            'password' => 'password',
+        ]);
 
 
 

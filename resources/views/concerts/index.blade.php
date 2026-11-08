@@ -8,7 +8,32 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
+            <form action="{{ route('concerts.index') }}" method="GET">
+                <select name="escenari_id">
+                    <option value="">Tots els escenaris</option>
+                    @foreach ($escenaris as $escenari)
+                        <option value="{{ $escenari->id }}" {{ request('escenari_id') == $escenari->id ? 'selected' : '' }}>
+                            {{ $escenari->nom }}
+                        </option>
+                    @endforeach
+                </select>
 
+                <select name="genere_id">
+                    <option value="">Tots els gèneres</option>
+                    @foreach ($generes as $genere)
+                        <option value="{{ $genere->id }}" {{ request('genere_id') == $genere->id ? 'selected' : '' }}>
+                            {{ $genere->nom }}
+                        </option>
+                    @endforeach
+                </select>
+
+                <input type="date" name="data_inici" value="{{ request('data_inici') }}">
+                <input type="date" name="data_fi" value="{{ request('data_fi') }}">
+
+                <button type="submit">Filtrar</button>
+                <a href="{{ route('concerts.index') }}">Netejar</a>
+            </form>
+            <br>
 
             <table border="1" cellpadding="6">
                 <tr>
@@ -40,7 +65,7 @@
                                 <span style="background-color: red; color: white; padding: 2px 8px; border-radius: 4px;">Error</span>
                             @endif
                         </td>
-                        <td> <a href="{{route('escenaris.show', $concert->escenari)}}">{{ $concert->escenari->nom }}</a></td>
+                        <td>{{ $concert->escenari->nom }}</td>
                     </tr>
                 @endforeach
             </table>

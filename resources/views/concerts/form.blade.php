@@ -60,18 +60,19 @@
     @enderror
     <br>
 
-    <label for="escenaris">
-        Escenaris:
+    <label for="escenari_id">
+        Escenari:
     </label><br>
-    <select name="escenaris" id="escenaris">
+    <select name="escenari_id" id="escenari_id">
         <option value="">-- Selecciona --</option>
-        @foreach([Escenari::get()] as $t)
-            <option value="{{ $t }}" {{ old('escenaris', $concert->escenari->nom ?? '') == $t ? 'selected' : '' }}>
-                {{ $t }}
+        @foreach($escenaris as $escenari)
+            <option value="{{ $escenari->id }}"
+                {{ old('escenari_id', $concert->escenari_id ?? '') == $escenari->id ? 'selected' : '' }}>
+                {{ $escenari->nom }}
             </option>
         @endforeach
     </select>
-    @error('escenaris')
-    <p style="color:red">{{ $message }}</p>
+    @error('escenari_id')
+        <p style="color:red">{{ $message }}</p>
     @enderror
     <br>

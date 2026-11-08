@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Entrada extends Model
 {
-    protected $casts = [
-
-    ];
     protected $table = 'entrades';
     protected $fillable = [
         'user_id',
@@ -17,6 +14,7 @@ class Entrada extends Model
         'preu_pagat',
         'codi_entrada',
     ];
+
     protected static function boot()
     {
         parent::boot();
@@ -26,12 +24,12 @@ class Entrada extends Model
         });
     }
 
-    public function user(): belongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function concert(): belongsTo
+    public function concert(): BelongsTo
     {
         return $this->belongsTo(Concert::class);
     }

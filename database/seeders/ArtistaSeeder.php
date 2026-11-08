@@ -70,28 +70,20 @@ class ArtistaSeeder extends Seeder
             'actiu' => false,
         ]);
 
+        $pop = Genere::where('nom', 'Pop')->first();
+        $rock = Genere::where('nom', 'Rock')->first();
+        $electro = Genere::where('nom', 'Electrònica')->first();
+        $jazz = Genere::where('nom', 'Jazz')->first();
+        $hiphop = Genere::where('nom', 'Hip-hop')->first();
+        $indie = Genere::where('nom', 'Indie')->first();
+
+        Artista::where('nom', 'Rosalía')->first()->generes()->attach([$pop->id, $electro->id]);
+        Artista::where('nom', 'George Michael')->first()->generes()->attach([$pop->id]);
+        Artista::where('nom', 'YKZ')->first()->generes()->attach([$hiphop->id, $rock->id]);
+        Artista::where('nom', 'Eric Clapton')->first()->generes()->attach([$rock->id, $jazz->id]);
+        Artista::where('nom', 'Sabrina Carpenter')->first()->generes()->attach([$pop->id, $indie->id]);
+        Artista::where('nom', 'ABBA')->first()->generes()->attach([$pop->id]);
+        Artista::where('nom', 'Limp Bizkit')->first()->generes()->attach([$rock->id, $hiphop->id]);
+        Artista::where('nom', 'Urban Dance Squad')->first()->generes()->attach([$hiphop->id, $rock->id, $electro->id]);
     }
 }
-/*id
-nom
-pais
-bio
-imatge_url
-actiu
-timestamps
-*/
-
-
-$rosalia = Artista::where('nom', 'Rosalia')->first();
-$pop = Genere::where('nom', 'Pop')->first();
-$electro = Genere::where('nom', 'Electrònica')->first();
-
-if ($rosalia && $pop && $electro) {
-    $rosalia->generes()->attach([$pop->id, $electro->id]);
-}
-
-$allGeneres = Genere::all();
-Artista::all()->each(function ($artista) use ($allGeneres) {
-    $randomGeneres = $allGeneres->random(rand(1, 3))->pluck('id');
-    $artista->generes()->attach($randomGeneres);
-});
